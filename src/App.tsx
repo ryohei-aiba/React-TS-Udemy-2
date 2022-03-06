@@ -3,13 +3,22 @@ import { useState } from "react";
 import { Todo } from "./Todo";
 import "./styles.css";
 
+type TodoType = {
+  userId: number;
+  id: number;
+  title: string;
+  completed: boolean;
+};
+
 export default function App() {
   const [todos, setTodos] = useState<any>([]);
 
   const onClickFetchData = () => {
-    axios.get("https://jsonplaceholder.typicode.com/todos").then((res) => {
-      setTodos(res.data);
-    });
+    axios
+      .get<Array<TodoType>>("https://jsonplaceholder.typicode.com/todos")
+      .then((res) => {
+        setTodos(res.data);
+      });
   };
 
   return (
