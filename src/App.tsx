@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { Todo } from "./Todo";
+import { Text } from "./Text";
 import "./styles.css";
 import { TodoType } from "./types/todo";
 
@@ -17,6 +18,7 @@ export default function App() {
 
   return (
     <div className="App">
+      <Text color={"red"} fontSize={"18px"} />
       <button onClick={onClickFetchData}>データ取得</button>
       {todos.map((todo) => (
         <Todo
